@@ -1,0 +1,7 @@
+vendor
+public/node_modules
+writable/cache
+writable/logs
+writable/debugbar
+writable/session
+.env

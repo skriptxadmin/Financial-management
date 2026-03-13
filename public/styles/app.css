@@ -1,0 +1,164 @@
+/* Override Bootstrap primary color globally */
+@media screen and (min-width:767px) {
+
+    html,
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .main {
+        height: calc(100vh - 59px);
+        overflow: auto;
+    }
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+:root {
+    --app-primary: #062644 !important;
+    /* Dark blue 0d3b66*/
+}
+
+.bg-app-primary{
+    background-color: var(--app-primary) !important;
+}
+.text-primary {
+    --bs-text-opacity: 1;
+    color: rgba(var(--app-primary), var(--bs-text-opacity)) !important;
+}
+
+.offcanvas, .offcanvas-lg, .offcanvas-md, .offcanvas-sm, .offcanvas-xl, .offcanvas-xxl {
+   
+    --bs-offcanvas-width: 280px;
+}
+.offcanvas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #0d3b66;
+    /* dark blue */
+    --bs-btn-border-color: #0d3b66;
+
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #092543;
+    /* slightly darker for hover */
+    --bs-btn-hover-border-color: #092543;
+
+    --bs-btn-focus-shadow-rgb: 13, 59, 102;
+    /* RGB of #0d3b66 */
+
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #092543;
+    /* slightly darker for active */
+    --bs-btn-active-border-color: #092543;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0d3b66;
+    --bs-btn-disabled-border-color: #0d3b66;
+}
+
+form .form-label {
+    font-weight: 500;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: none;
+    /* removes blue glow/blur */
+    border-color: #0d3b66;
+    /* dark blue border */
+    outline: none;
+    /* optional, removes default outline */
+}
+
+.form-control.is-invalid:focus,
+.form-select.is-invalid:focus {
+    box-shadow: none;
+    /* removes blue glow/blur */
+    outline: none;
+    /* optional, removes default outline */
+}
+
+.btn:focus-visible {
+    box-shadow: none;
+}
+
+@media (min-width: 992px) {
+
+    #sidebar {
+        visibility: visible !important;
+        transform: none !important;
+        position: relative;
+        border-right: 1px solid #ddd;
+        min-height: 100vh;
+    }
+
+}
+
+.btn-edit svg {
+    fill: #ffc107;
+}
+
+.btn-delete svg {
+    fill: #dc3545;
+}
+
+
+body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+   
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Poppins", sans-serif;
+}
+
+/* Sidebar nav */
+.nav.flex-column {
+    /* border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 10px 0; */
+}
+
+/* Each menu item */
+
+
+.nav.flex-column .nav-item {
+    border-top: 1px solid #f5f5f5;
+    border-style: groove;
+    border-left: none;
+    border-right: none;
+}
+
+/* Links */
+.nav.flex-column .nav-link {
+    padding: 10px 16px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+/* Hover effect */
+.nav.flex-column .nav-link:hover {
+    background: #f9fafb;
+    color: #111827;
+}
+
+/* First item remove double border */
+.nav.flex-column .nav-item:first-child {
+    border-top: none;
+}
+/* .nav.flex-column {
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: inset 0 1px 0 #ffffff, inset 0 -1px 0 #ffffff;
+} */
