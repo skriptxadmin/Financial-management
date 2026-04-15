@@ -1,23 +1,24 @@
 function ajax(options) {
-  const ajaxOptions = {...options};
+  const ajaxOptions = { ...options };
   ajaxOptions.url = joinUrl(options.url);
   const csrfToken = $('meta[name="csrf-token"]').attr("content");
   ajaxOptions.headers = options.headers || {};
   if (csrfToken) {
     ajaxOptions.headers["X-CSRF-TOKEN"] = csrfToken;
   }
-  toggleLoader(true);
-  ajaxOptions.success = function(res){
-    if(res.message){
+  const loader = _.get(options, 'loader', true);
+  toggleLoader(loader);
+  ajaxOptions.success = function (res) {
+    if (res.message) {
       toastSuccess(res.message);
     }
-    if(res.redirect){
+    if (res.redirect) {
       window.location.href = res.redirect;
     }
-    if(options.success){
-    options.success(res);
+    if (options.success) {
+      options.success(res);
     }
-  }
+  };
   ajaxOptions.error = handleError;
   ajaxOptions.complete = function () {
     toggleLoader(false);

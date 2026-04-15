@@ -11,6 +11,10 @@
         height: calc(100vh - 59px);
         overflow: auto;
     }
+      .nav-wrapper {
+        height: calc(100vh - 59px);
+        overflow: auto;
+    }
 }
 
 body {

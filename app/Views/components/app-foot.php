@@ -22,6 +22,7 @@
     <script src="<?php echo base_url('node_modules/jquery-validation/dist/additional-methods.min.js') ?>"></script>
     <script src="<?php echo base_url('node_modules/lodash/lodash.min.js') ?>"></script>
     <script src="<?php echo base_url('node_modules/moment/min/moment.min.js') ?>"></script>
+    <script src="<?php echo base_url('node_modules/select2/dist/js/select2.min.js') ?>"></script>
     <script src="<?php echo base_url('node_modules/datatables.net/js/dataTables.min.js') ?>"></script>
     <script src="<?php echo base_url('node_modules/datatables.net-bs5/js/dataTables.bootstrap5.min.js') ?>"></script>
 

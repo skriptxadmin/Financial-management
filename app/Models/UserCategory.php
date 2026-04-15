@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class UserCategory extends Model
 {
-    protected $table            = 'usercategories';
+    protected $table            = 'user_categories';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = \App\Entities\UserCategory::class;

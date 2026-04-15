@@ -15,6 +15,10 @@ class GetController extends BaseController
         $draw   = (int) $this->request->getGet('draw');
         $start  = (int) $this->request->getGet('start');
         $length = (int) $this->request->getGet('length');
+        
+        if(!$length) $length = 10;
+        if(!$start) $start = 0;
+        if(!$draw) $draw = 1;
 
         $search = $this->request->getGet('search')['value'] ?? null;
 

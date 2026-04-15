@@ -4,3 +4,8 @@ jQuery(function () {
     new bootstrap.Offcanvas(offcanvasEl);
   });
 });
+
+      function toFloat (val)  {
+        const num = parseFloat(val);
+        return isNaN(num) ? 0.0 : parseFloat(num.toFixed(2));
+      };

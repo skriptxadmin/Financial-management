@@ -7,7 +7,11 @@ class GetController extends BaseController
 {
     public function index($companySlug = null)
     {
-        return view('company-contacts/list/index', compact('companySlug'));
+        $model = new \App\Models\Company;
+
+        $company = $model->where('slug', $companySlug)->first();
+
+        return view('company-contacts/list/index', compact('company'));
     }
 
     public function paginated()
@@ -16,6 +20,10 @@ class GetController extends BaseController
         $start       = (int) $this->request->getGet('start');
         $length      = (int) $this->request->getGet('length');
         $companySlug = (int) $this->request->getGet('companySlug');
+
+         if(!$length) $length = 10;
+        if(!$start) $start = 0;
+        if(!$draw) $draw = 1;
 
         $search = $this->request->getGet('search')['value'] ?? null;
 
