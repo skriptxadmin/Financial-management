@@ -45,6 +45,14 @@ class PostController extends BaseController
                 ],
             ],
 
+            'category'           => [
+                'rules'  => 'required|is_not_unique[purchase_categories.slug]',
+                'errors' => [
+                    'required'      => 'Category is required',
+                    'is_not_unique' => 'Selected category does not exist',
+                ],
+            ],
+
             'discount'           => [
                 'rules'  => 'required|decimal',
                 'errors' => [
@@ -175,11 +183,15 @@ class PostController extends BaseController
                 ->setJSON(['errors' => 'Company contact does not match']);
         }
 
+        $categoryModel = new \App\Models\PurchaseCategory;
+        $category = $categoryModel->where('slug', $validatedData['category'])->first();
+
         $args = [
             'title'              => $validatedData['title'],
             'slug'               => $validatedData['slug'],
             'company_id'            => $company->id,
             'company_contact_id' => $company_contact->id,
+            'category_id'        => $category->id,
             'request_id'         => date('YmdHis'),
             'discount'           => $validatedData['discount'],
             'tax'                => $validatedData['tax'],

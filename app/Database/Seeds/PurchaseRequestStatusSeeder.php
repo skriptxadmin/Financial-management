@@ -9,10 +9,7 @@ class PurchaseRequestStatusSeeder extends Seeder
      public function run()
     {
          $data = [
-            [
-                'slug'  => 'created',
-                'name'  => 'Created'
-            ],
+            
             [
                 'slug'  => 'pending',
                 'name'  => 'Pending'
@@ -25,9 +22,14 @@ class PurchaseRequestStatusSeeder extends Seeder
                 'slug'  => 'rejected',
                 'name'  => 'Rejected'
             ],
+            [
+                'slug'  => 'edited',
+                'name'  => 'Edited'
+            ],
         ];
 
         $model = new \App\Models\PurchaseRequestStatus;
+        $model->truncate();
         foreach ($data as $item) {
             $model->insert($item);
         }

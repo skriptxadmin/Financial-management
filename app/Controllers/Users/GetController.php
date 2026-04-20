@@ -30,7 +30,7 @@ class GetController extends BaseController
         $recordsTotal = $userModel->countAll();
 
         $builder = $userModel
-            ->select('firstname, lastname, username, email, mobile, blocked_at, visible');
+            ->select('id, firstname, lastname, username, email, mobile, blocked_at, visible');
 
         if (! empty($search)) {
             $builder->groupStart()

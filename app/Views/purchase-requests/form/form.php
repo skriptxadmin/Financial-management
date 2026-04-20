@@ -1,4 +1,4 @@
-<form action="" class="purchase-request">
+<form action="" class="purchase-request" data-slug="<?php echo $slug ?? '' ?>">
     <div class="form-group mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" class="form-control" name="title" id="title">
@@ -16,6 +16,20 @@
                 <label for="companyContact" class="form-label">Company Contact</label>
                 <select name="companyContact" id="companyContact" class="form-select"></select>
 
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+             <div class="form-group mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select name="category" id="category" class="form-select"></select>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group mb-3">
+                <label for="notes" class="form-label">Notes</label>
+                <textarea name="notes" id="notes" class="form-control notes" placeholder="Notes"></textarea>
             </div>
         </div>
     </div>
@@ -38,11 +52,6 @@
                 
                 </tbody>
                 <tfoot>
-                    <tr>
-                        <td colspan="7" class="p-0">
-                            <textarea name="notes" id="notes" class="form-control notes" placeholder="Notes"></textarea>
-                        </td>
-                    </tr>
                     <tr>
                         <th colspan="6" class="text-end">Total</th>
                         <td class="p-0">

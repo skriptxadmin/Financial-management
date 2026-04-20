@@ -57,6 +57,25 @@ class CreatePurchaseRequestsTable extends Migration
              'notes'            => [
                 'type'       => 'TEXT',
             ],
+             'category_id' => [
+                'type'       => 'INT',
+                'constraint' => 11,
+                'unsigned'   => true,
+                'after'      => 'company_id',
+                'null'       => true,
+            ],
+            'edited_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
+                'after' => 'rejected_at',
+            ],
+            'edited_by' => [
+                'type'       => 'INT',
+                'constraint' => 11,
+                'null'       => true,
+                'after'      => 'edited_at',
+            ],
+        
             'approved_by'        => [
                 'type'    => 'INT',
                 'null'    => true,

@@ -85,6 +85,7 @@
 
         <ul class="collapse ps-3" id="purchaseRequestsMenu">
             <li><a class="nav-link" href="<?php echo base_url('purchase-requests') ?>">All Purchase Requests</a></li>
+            <li><a class="nav-link" href="<?php echo base_url('purchase-categories') ?>">Categories</a></li>
             <li><a class="nav-link" href="<?php echo base_url('purchase-request-status') ?>">Status</a></li>
 	     </ul>
     </li>

@@ -1,0 +1,26 @@
+php spark serve 
+php spark migrate
+php spark db:seed DatabaseSeeder
+
+php spark make:migration CreatePurchaseCategoriesTable
+php spark make:seeder PurchaseCategoriesSeeder
+// map PurchaseCategoriesSeeder to DatabaseSeeder
+
+php spark make:model PurchaseCategory
+php spark make:entity PurchaseCategory
+
+  protected $returnType       = \App\Entities\PurchaseCategory::class;
+    protected $useSoftDeletes   = true; // change from false to true
+    protected $protectFields    = true; // change from false to true
+    protected $allowedFields    = [] // add column names
+ protected $useTimestamps = true; // change from false to true
+
+
+
+
+
+
+
+
+
+

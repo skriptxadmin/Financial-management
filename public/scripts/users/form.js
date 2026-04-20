@@ -10,7 +10,7 @@ jQuery(function () {
     const options = {
       url: "/user-roles",
       success: function (res) {
-        const roles = _.get(res, "roles", []);
+        const roles = _.uniqBy(_.get(res, "roles", []), "slug");
         let options$ = `<option value="">Select Role</option>`;
         options$ += roles
           .map((option) => {
@@ -115,8 +115,8 @@ jQuery(function () {
       maxlength: "Mobile number cannot exceed 10 digits",
     },
     password: {
-      minlength: "Mobile number must be at least 8 characters",
-      maxlength: "Mobile number cannot exceed 15 characters",
+      minlength: "Password must be at least 8 characters",
+      maxlength: "Password cannot exceed 15 characters",
     },
     role: {
       required: "Please select a role",

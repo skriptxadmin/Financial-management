@@ -31,13 +31,13 @@ class PostController extends BaseController
                 ],
             ],
             'location_primary' => [
-                'rules'  => 'required|is_not_unique[warehouse_location.slug]',
+                'rules'  => 'required|is_not_unique[warehouse_locations.slug]',
                 'errors' => [
                     'required'   => 'Primary location is required',
                 ],
             ],
             'location_secondary'  => [
-                'rules'  => 'required|is_not_unique[warehouse_location.slug]',
+                'rules'  => 'required|is_not_unique[warehouse_locations.slug]',
                 'errors' => [
                     'required'      => 'Secondary location is required',
                 ],
@@ -75,9 +75,9 @@ class PostController extends BaseController
         $validatedData['location_secondary_id'] = $secondary->id;
         
 
-        unset($validatedData['status_id']);
-        unset($validatedData['location_primary_id']);
-        unset($validatedData['location_secondary_id']);
+        unset($validatedData['status']);
+        unset($validatedData['location_primary']);
+        unset($validatedData['location_secondary']);
 
 
         helper('slug');

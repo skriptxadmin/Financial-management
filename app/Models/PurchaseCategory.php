@@ -4,15 +4,25 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PurchaseRequestItem extends Model
+class PurchaseCategory extends Model
 {
-    protected $table            = 'purchase_request_items';
+    protected $table            = 'purchase_categories';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $returnType       = \App\Entities\PurchaseRequestItem::class;
+    protected $returnType       = \App\Entities\PurchaseCategory::class;
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['purchase_request_id', 'item_id', 'quantity', 'price', 'subtotal','tax', 'tax_amount','total','deleted_by'];
+    protected $allowedFields = [
+        'slug',
+        'name',
+        'head_user_id',
+        'created_by',
+        'updated_by',
+        'deleted_by',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     protected bool $allowEmptyInserts = true;
     protected bool $updateOnlyChanged = true;

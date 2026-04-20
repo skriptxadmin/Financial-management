@@ -1,0 +1,47 @@
+core coding - python   javascript       php
+library - nypy - addition  jquery react vue
+plugin - depend on library jquery-validation 
+framework - routing+library fastapi - angular, next  - code Igniter
+cms = 
+
+<button id="nav">Go to google</button>
+
+document.getElementById("nav").addEventListener("click", function(){
+    window.location.href = "https://www.google.com"
+
+})
+
+jQuery("#nav").on("click", function(){
+  window.location.href = "https://www.google.com"
+
+})
+
+
+https://localhost:8080   - baseurl
+https://localhost:8000/user - path
+https://localhost:8000/products?page=1&item=10 - query
+
+
+Brower request <=>response  server
+
+mvc -> model view controller
+
+controller -> view
+    |
+
+    model
+
+ajax -  asynchronous javascript - same domain
+api - application programmable interface - different domain
+
+xml - parse
+json - javascript object notation
+
+{
+    "name":"ALaksandar"
+}
+
+core
+framework
+alak code
+manikandan code

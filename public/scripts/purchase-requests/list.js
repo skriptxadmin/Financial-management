@@ -54,7 +54,10 @@ jQuery(function () {
           orderable: false,
           searchable: false,
           render: function (data, type, row, meta) {
-            return `<button class="btn btn-link toggle-status" data-slug="${data?.status?.slug}">${data.status?.name}</button>`;
+            const isHead = parseInt(data?.category?.head_user_id) === parseInt(appLocals.user_id);
+            const disabled = isHead ? "" : "disabled";
+            const cursor = isHead ? "" : "style='cursor: default; text-decoration: none;'";
+            return `<button class="btn btn-link toggle-status" ${disabled} ${cursor} data-slug="${data?.status?.slug}">${data.status?.name}</button>`;
           },
         },
         {
@@ -75,4 +78,33 @@ jQuery(function () {
       },
     });
   }
+
+   table$.on("click", ".btn-edit", function () {
+    const slug = jQuery(this).closest("tr").attr("data-slug");
+    const href = `${window.appLocals.base}purchase-requests/${slug}/edit`;
+    window.location.href = href;
+  });
+
+
+
+   table$.on("click", ".btn-delete", async function () {
+        const result = await ratify(
+          "Are you sure you want to delete this purchase request?"
+        );
+        if (!result) return;
+
+        const slug = jQuery(this).closest("tr").attr("data-slug");
+
+        const options = {
+          url: `purchase-requests/${slug}`,
+          method: "DELETE",
+          success: function () {
+            drawPurchaseRequestsTable();
+          },
+        };
+
+        ajax(options);
+      });
+
+
 });

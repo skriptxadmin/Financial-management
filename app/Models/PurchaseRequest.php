@@ -12,7 +12,8 @@ class PurchaseRequest extends Model
     protected $returnType       = \App\Entities\PurchaseRequest::class;
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['title', 'slug', 'request_id','company_id', 'company_contact_id', 'discount', 'total', 'payable', 'tax', 'notes', 'status_id'];
+    protected $allowedFields    = ['title', 'slug', 'request_id','company_id', 'company_contact_id', 'discount', 'total', 'payable',
+     'tax', 'notes', 'status_id', 'category_id', 'approved_by', 'approved_at', 'rejected_by', 'rejected_at','deleted_by'];
 
     protected bool $allowEmptyInserts = true;
     protected bool $updateOnlyChanged = true;

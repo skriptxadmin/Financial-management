@@ -5,6 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+
 $routes->get('/', 'Guest\LoginController::index');
 $routes->get('/forgot-password', 'Guest\ForgotPasswordController::index');
 $routes->get('/set-password', 'Guest\SetPasswordController::index');
@@ -128,6 +129,10 @@ $routes->group('/quotation-status', ['filter' => 'isUser:administrator'], functi
 });
 
 
+
+$routes->group('/purchase-categories', ['filter' => 'isUser:administrator'], function ($routes) {
+    $routes->get('', 'PurchaseCategories\GetController::index');
+});
 
 $routes->group('/purchase-request-status', ['filter' => 'isUser:administrator'], function ($routes) {
     $routes->get('', 'PurchaseRequestStatus\GetController::index');

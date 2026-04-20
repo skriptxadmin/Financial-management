@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call('QuotationStatusSeeder');
         $this->call('PurchaseRequestStatusSeeder');
         $this->call('PurchaseRequestsSeeder');
+        $this->call('PurchaseCategoriesSeeder');
     }
 }

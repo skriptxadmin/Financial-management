@@ -34,13 +34,13 @@ class PutController extends BaseController
                 ],
             ],
             'location_primary'      => [
-                'rules'  => 'required|is_not_unique[warehouse_location.slug]',
+                'rules'  => 'required|is_not_unique[warehouse_locations.slug]',
                 'errors' => [
                     'required'   => 'Primary location is required',
                 ],
             ],
             'location_secondary'  => [
-                'rules'  => 'required|is_not_unique[warehouse_location.slug]',
+                'rules'  => 'required|is_not_unique[warehouse_locations.slug]',
                 'errors' => [
                     'required'      => 'Secondary location is required',
                 ],

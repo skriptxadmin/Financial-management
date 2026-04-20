@@ -3,11 +3,11 @@ jQuery(function () {
 
   if (!form$.length) return;
 
-  const company$ = form$.find("#company");
+  const category$ = form$.find("#category");
 
-  company$.select2({
-    placeholder: "Search company...",
-    minimumInputLength: 1,
+  category$.select2({
+    placeholder: "Search category...",
+    minimumInputLength: 0,
     allowClear: true,
     
     theme:"bootstrap-5",
@@ -16,10 +16,13 @@ jQuery(function () {
 
       transport: function (params, success, failure) {
         const options = {
-          url: "/companies",
+          url: "/purchase-categories",
           loader: false,
           data: { search: { value: params.data.q } },
           success: function (response) {
+            // PurchaseCategories/GetController::all returns { categories: [...] }
+            // We need to wrap it in a format Select2 expects if needed, 
+            // but select2 ajax processResults does that.
             success(response);
           },
         };
@@ -28,8 +31,10 @@ jQuery(function () {
 
       processResults: function (data) {
         // Convert API response to Select2 format
+        // PurchaseCategories returns data in 'categories' key
+        const items = data.categories || data.data || [];
         return {
-          results: data.data.map(function (item) {
+          results: items.map(function (item) {
             return {
               id: item.slug,
               text: item.name,

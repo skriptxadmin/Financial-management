@@ -110,7 +110,7 @@ $routes->group('ajax/user-categories', ['filter' => 'isAjaxUser:administrator'],
 $routes->group('ajax/warehouses', ['filter' => 'isAjaxUser:administrator'], function ($routes) {
     $routes->get('', 'Warehouses\GetController::paginated');
     $routes->get('(:segment)', 'Warehouses\GetController::get/$1');
-    $routes->post('', 'Warehouses\PostController::index');
+    $routes->post('', 'Warehouses\PostController::save');
     $routes->put('(:segment)', 'Warehouses\PutController::save/$1');
     $routes->delete('(:segment)', 'Warehouses\DeleteController::index/$1');
 });
@@ -182,6 +182,14 @@ $routes->group('ajax/quotation-status', ['filter' => 'isAjaxUser:administrator']
 
 
 
+$routes->group('ajax/purchase-categories', ['filter' => 'isAjaxUser:administrator'], function ($routes) {
+    $routes->get('', 'PurchaseCategories\GetController::all');
+    $routes->get('(:segment)', 'PurchaseCategories\GetController::get/$1');
+    $routes->post('', 'PurchaseCategories\PostController::save');
+    $routes->put('(:segment)', 'PurchaseCategories\PutController::save/$1');
+    $routes->delete('(:segment)', 'PurchaseCategories\DeleteController::index/$1');
+});
+
 $routes->group('ajax/purchase-request-status', ['filter' => 'isAjaxUser:administrator'], function ($routes) {
     $routes->get('', 'PurchaseRequestStatus\GetController::all');
     $routes->get('(:segment)', 'PurchaseRequestStatus\GetController::get/$1');
@@ -200,4 +208,8 @@ $routes->group('ajax/purchase-requests', ['filter' => 'isAjaxUser:administrator'
     $routes->put('(:segment)', 'PurchaseRequests\PutController::save/$1');
 
     $routes->delete('(:segment)', 'PurchaseRequests\DeleteController::index/$1');
+
+    $routes->put('(:segment)/toggle/status', 'PurchaseRequests\ToggleController::status/$1');
+
+   
 });

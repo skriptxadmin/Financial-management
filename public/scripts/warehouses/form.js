@@ -36,9 +36,7 @@ jQuery(function () {
           })
           .join("");
         form$.find("#location_primary").html(options$);
-        if (slug) {
-          getSecondary();
-        }
+        getSecondary();
       },
     };
     ajax(options);

@@ -8,6 +8,7 @@
     appLocals = {
         base: "<?php echo base_url('') ?>",
         ajax: "<?php echo base_url('/ajax') ?>",
+        user_id: "<?php echo session()->get('user')->id ?? 0 ?>",
         svgs:{
             edit: '<?= svg('edit'); ?>',
             delete: '<?= svg('delete'); ?>',

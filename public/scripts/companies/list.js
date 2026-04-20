@@ -101,7 +101,7 @@ jQuery(function () {
     const options = {
       url: `companies/${slug}/toggle/visible`,
       method: "PUT",
-      success: function () {},
+      success: function () { },
     };
     ajax(options);
   });

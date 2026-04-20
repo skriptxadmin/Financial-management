@@ -15,7 +15,7 @@ class GetController extends BaseController
     {
         $model = new \App\Models\UserRole();
 
-        $roles = $model->select('name, slug')->findAll();
+        $roles = $model->select('name, slug')->distinct()->findAll();
 
         return $this->response->setJSON(compact('roles'));
 

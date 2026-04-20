@@ -67,6 +67,14 @@ jQuery(function () {
     const result = await ratify("Are you sure you want to delete this user?");
     if (!result) return;
     const username = jQuery(this).closest("tr").attr("data-username");
+    const options = {
+      url: `users/${username}`,
+      method: "DELETE",
+      success: function (res) {
+        table$.DataTable().ajax.reload();
+      },
+    };
+    ajax(options);
   });
   table$.on("change", ".toggle-block", async function () {
     const result = await ratify("Are you sure you want to toggle block this user?");

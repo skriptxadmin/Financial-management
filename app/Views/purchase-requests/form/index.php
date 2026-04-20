@@ -24,5 +24,6 @@ Purchase Requests Page
    <script src="<?= base_url('scripts/purchase-requests/form.js') ?>"></script>
    <script src="<?= base_url('scripts/purchase-requests/select2-company.js') ?>"></script>
    <script src="<?= base_url('scripts/purchase-requests/select2-company-contact.js') ?>"></script>
+   <script src="<?= base_url('scripts/purchase-requests/select2-category.js') ?>"></script>
    <script src="<?= base_url('scripts/purchase-requests/table.js') ?>"></script>
 <?= $this->endSection() ?>

@@ -29,10 +29,10 @@ class GetController extends BaseController
         $model = model(\App\Models\PurchaseRequest::class);
 
         // Total records (no filter)
-        $recordsTotal = $model->countAll();
+        $recordsTotal = $model->countAllResults();
 
         $builder = $model
-            ->select('title, request_id, company_id, company_contact_id, discount, tax, total, payable, status_id');
+            ->select('slug, title, request_id, company_id, company_contact_id, category_id, discount, tax, total, payable, status_id');
 
         if (! empty($search)) {
             $builder->groupStart()
@@ -56,6 +56,8 @@ class GetController extends BaseController
         unset($purchase_request->company_id);
         $purchase_request->company_contact = $purchase_request->contact_details;
         unset($purchase_request->company_contact_id);
+        $purchase_request->category = $purchase_request->category_details;
+        unset($purchase_request->category_id);
            $purchase_request->status = $purchase_request->status_details;
         unset($purchase_request->status_id);
             }
@@ -68,7 +70,25 @@ class GetController extends BaseController
             "recordsFiltered" => $recordsFiltered,
             "data"            => $data ? array_values($data) : [],
         ]);
-    }
+        }
 
+        public function get($slug)
+        {
+        $model = new \App\Models\PurchaseRequest;
+        $purchaseRequest = $model->where('slug', $slug)->first();
+        if(empty($purchaseRequest)){
+            return $this->response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND)
+                ->setJSON(['message' => 'Purchase Request not found']);
+        }
 
-}
+        if(!empty($purchaseRequest->company_id)){
+            $purchaseRequest->company = $purchaseRequest->companyDetails;
+            $purchaseRequest->company_contact = $purchaseRequest->contactDetails;
+            $purchaseRequest->category = $purchaseRequest->categoryDetails;
+            $purchaseRequest->items = $purchaseRequest->itemDetails;
+            
+        }
+
+        return $this->response->setJSON($purchaseRequest);  
+        }
+        }
